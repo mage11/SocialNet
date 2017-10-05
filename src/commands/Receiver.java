@@ -12,7 +12,7 @@ public class Receiver {
         this.network = network;
     }
 
-    public Network getNetwork() {
-        return network;
-    }
+    public Network getNetwork() { return network; }
+
+
 }

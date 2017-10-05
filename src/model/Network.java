@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Network {
     private final List<User> userList = new ArrayList<>();
+    private User currentUser;
 
     public void addUser(User user) {
         userList.add(user);
@@ -16,4 +17,11 @@ public class Network {
     public int getNumberOfUsers() {
         return userList.size();
     }
+
+    public List<User> getUserList() { return userList; }
+
+    public void setCurrentUser(User currentUser) { this.currentUser = currentUser; }
+
+    public User getCurrentUser() { return currentUser; }
+
 }
