@@ -8,6 +8,7 @@ import java.util.List;
  * Created by user on 9/30/2017.
  */
 public class User {
+    private static long userCounter=0;
     private long id;
     private String login;
     private String name;
@@ -15,8 +16,8 @@ public class User {
     private Date birthday;
     private String password;
 
-    List<User> friendList = new ArrayList<>();
-    List<Message> messageList = new ArrayList<>();
+    private List<User> friendList = new ArrayList<>();
+    private List<Message> messageList = new ArrayList<>();
 
     public String getLogin(){ return login;}
     public String getName() { return name;}
@@ -46,6 +47,13 @@ public class User {
         this.surname = surname;
     }
 
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+    public List<User> getFriendList() {
+        return friendList;
+    }
+
     public void addMessage(Message message) {
         this.messageList.add(message);
     }
@@ -53,7 +61,7 @@ public class User {
         this.friendList.add(friend);
     }
 
-    public User() {}
+    public User() {userCounter++; id = userCounter;}
     public User(long id, String login, String name, String surname, Date birthday, String password){
         this.id = id;
         this.login = login;
