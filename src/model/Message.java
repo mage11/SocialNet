@@ -3,7 +3,7 @@ package model;
 public class Message {
     private String message;
     private User sender;
-    private String recipient;
+    private String recipient; //login
 
     private byte type; //1 - private, 0 - public
 

@@ -18,6 +18,7 @@ public class Starter {
         Command createPublicMessageCommand = new CreateNewUserCommand(receiver);
         Command createPrivateMessageCommand = new CreatePrivateMessageCommand(receiver);
         Command showAllPublicMessagesCommand = new ShowAllPublicMessagesCommand(receiver);
+        Command showAllPrivateMessagesCommand = new ShowAllPrivateMessagesCommand(receiver);
         Command addFriendCommand = new AddFriendCommand(receiver);
 
 
@@ -33,7 +34,8 @@ public class Starter {
                  System.out.println("2 - Create a public message");
                  System.out.println("3 - Create a private message");
                  System.out.println("4 - Show all public message");
-                 System.out.println("5 - Add a friend");
+                 System.out.println("4 - Show all private message");
+                 System.out.println("6 - Add a friend");
                  System.out.println("666 - exit");
                  int i = scanner.nextInt();
 
@@ -43,7 +45,8 @@ public class Starter {
                      case 2: invoker.setCommand(createPublicMessageCommand);invoker.run();break;
                      case 3: invoker.setCommand(createPrivateMessageCommand);invoker.run();break;
                      case 4: invoker.setCommand(showAllPublicMessagesCommand);invoker.run();break;
-                     case 5: invoker.setCommand(addFriendCommand);invoker.run();break;
+                     case 5: invoker.setCommand(showAllPrivateMessagesCommand);invoker.run();break;
+                     case 6: invoker.setCommand(addFriendCommand);invoker.run();break;
                      case 666: exit = true; break;
                      default: throw new IllegalArgumentException("");
                  }

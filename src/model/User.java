@@ -62,14 +62,7 @@ public class User {
     }
 
     public User() {userCounter++; id = userCounter;}
-    public User(long id, String login, String name, String surname, Date birthday, String password){
-        this.id = id;
-        this.login = login;
-        this.name = name;
-        this.surname = surname;
-        this.birthday = birthday;
-        this.password = password;
-    }
+
 
 
 }

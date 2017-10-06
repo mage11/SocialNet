@@ -6,8 +6,6 @@ import model.Message;
 import model.Network;
 import model.User;
 
-import java.util.Scanner;
-
 
 public class ShowAllPublicMessagesCommand implements Command {
     private final Receiver receiver;
@@ -18,7 +16,6 @@ public class ShowAllPublicMessagesCommand implements Command {
 
     @Override
     public void execute() {
-        Scanner scanner = new Scanner(System.in);
         Network network = receiver.getNetwork();
         User user = network.getCurrentUser();
 
