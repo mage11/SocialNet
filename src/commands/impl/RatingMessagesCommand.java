@@ -29,7 +29,5 @@ public class RatingMessagesCommand implements Command {
         service.setUserName(user.getName());
         service.getRatingMessages(allMessages);
 
-        //Map<Integer, String> topWords = service.getTopWords();
-
     }
 }
