@@ -57,7 +57,7 @@ public class Starter {
                      default: throw new IllegalArgumentException("");
                  }
              }while (!exit);
-         }
+         } cat
 
     }
 }
