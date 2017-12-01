@@ -4,6 +4,8 @@ import commands.Command;
 import commands.Receiver;
 import model.Network;
 import model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import java.util.Scanner;
 @Service
 public class LoginCommand implements Command {
     private final Receiver receiver;
+    private static Logger LOGGER = LogManager.getLogger();
 
     @Autowired
     public LoginCommand(Receiver receiver) {
@@ -35,11 +38,12 @@ public class LoginCommand implements Command {
             if(user.getLogin().equals(login)) {
                 if(user.getPassword().equals(password)){
                     network.setCurrentUser(user);
+                    LOGGER.info("Login successful");
                     return;
                 }
             }
 
         }
-        System.out.println("Error");
+        LOGGER.info("Error for Login");
     }
 }

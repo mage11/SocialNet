@@ -7,6 +7,7 @@ import model.Message;
 import model.Network;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -57,6 +58,7 @@ public class DataDaoImpl extends BaseDao implements DataDao {
     }
 
     @Override
+    @Cacheable(value ="user")
     public void saveUser(User user){
         String sql = "INSERT INTO users (id, name, surname, sex, login, password, birthday) VALUES (?,?,?,?,?,?,?)";
         try(Connection connection = getConnection();
@@ -77,6 +79,7 @@ public class DataDaoImpl extends BaseDao implements DataDao {
     }
 
     @Override
+    @Cacheable(value ="user")
     public void getUsersFromDB(){
         Network network = receiver.getNetwork();
         String sql = "SELECT * FROM users";
@@ -96,6 +99,7 @@ public class DataDaoImpl extends BaseDao implements DataDao {
     }
 
     @Override
+    @Cacheable(value ="message")
     public void saveMessageToDB(Message message) {
         String sql = "INSERT INTO message (message, sender, recipient, type) VALUES (?,?,?,?)";
         try(Connection connection = getConnection();
@@ -112,6 +116,7 @@ public class DataDaoImpl extends BaseDao implements DataDao {
     }
 
     @Override
+    @Cacheable(value ="user")
     public User findUserInDB(String name, String surname){
         String sql = "SELECT * FROM users WHERE name = (?) AND surname = (?)";
         ResultSet resultSet;
@@ -138,6 +143,7 @@ public class DataDaoImpl extends BaseDao implements DataDao {
     }
 
     @Override
+    @Cacheable(value ="message")
     public List<Message> getPublicMessagesFromDB(String login){
         String sql = "SELECT * FROM messages WHERE type = (?) AND sender = (?)";
         ResultSet resultSet;
@@ -160,6 +166,7 @@ public class DataDaoImpl extends BaseDao implements DataDao {
     }
 
     @Override
+    @Cacheable(value ="message")
     public List<Message> getPrivateMessagesFromDB(String login){
         String sql = "SELECT * FROM messages WHERE type = (?) AND login = (?)";
         ResultSet resultSet;
@@ -182,6 +189,7 @@ public class DataDaoImpl extends BaseDao implements DataDao {
     }
 
     @Override
+    @Cacheable(value ="user")
     public void saveFriendToFriendlistDB(String loginOne, String loginTwo){
         String sql = "INSERT INTO friends (loginOne, loginTwo) VALUES (?,?)";
         try(Connection connection = getConnection();
@@ -194,5 +202,52 @@ public class DataDaoImpl extends BaseDao implements DataDao {
             throw new RuntimeException();
         }
     }
+
+    @Override
+    @Cacheable(value ="user")
+    public void updateUser (User user) {
+        String sql = "UPDATE user SET name = ?, password = ? WHERE login = ?";
+        try {
+            Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, user.getLogin());
+            statement.executeUpdate();
+            connection.commit();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Cacheable(value ="user")
+    public User getUserFromDB(String login) {
+        String sql = "SELECT login,name,password FROM user WHERE login = ?";
+        try {
+            Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String password = resultSet.getString("password");
+
+                User user = new User();
+                user.setName(name);
+                user.setLogin(login);
+                user.setPassword(password);
+
+                return user;
+            }
+
+            throw new RuntimeException("The user is not found");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 }

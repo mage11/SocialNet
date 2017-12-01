@@ -77,4 +77,9 @@ public class User {
         this.birthday = birthday;
         this.password = password;
     }
+    public User(String login, String name, String password){
+        this.login = login;
+        this.name = name;
+        this.password = password;
+    }
 }

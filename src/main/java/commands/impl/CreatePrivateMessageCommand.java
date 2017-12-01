@@ -7,6 +7,8 @@ import dao.impl.DataDaoImpl;
 import model.Message;
 import model.Network;
 import model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import java.util.Scanner;
 @Service
 public class CreatePrivateMessageCommand implements Command {
     private final Receiver receiver;
+    private static Logger LOGGER = LogManager.getLogger();
 
     @Autowired
     public CreatePrivateMessageCommand(Receiver receiver) {
@@ -43,10 +46,12 @@ public class CreatePrivateMessageCommand implements Command {
         for (User user : userList) {
             if(user.getLogin().equals(recipient)) {
                 user.addMessage(message);
-                }
+                LOGGER.info("Private Message "+ message.getMessage() + " is added for recipient");
             }
+        }
 
         network.getCurrentUser().addMessage(message);
+        LOGGER.info("Message "+ message.getMessage() + " is added for sender");
         dataDao.saveMessageToDB(message);
 
 

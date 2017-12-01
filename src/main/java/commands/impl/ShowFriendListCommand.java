@@ -4,6 +4,8 @@ import commands.Command;
 import commands.Receiver;
 import model.Network;
 import model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @Service
 public class ShowFriendListCommand implements Command {
     private final Receiver receiver;
+    private static Logger LOGGER = LogManager.getLogger();
 
     @Autowired
     public ShowFriendListCommand(Receiver receiver) {
@@ -30,6 +33,6 @@ public class ShowFriendListCommand implements Command {
             System.out.println(i + ". " + user.getSurname() + " " + user.getName()  );
             i++;
         }
-
+        LOGGER.info("Friends showed");
     }
 }

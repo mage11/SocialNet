@@ -6,6 +6,8 @@ import dao.DataDao;
 import dao.impl.DataDaoImpl;
 import model.Network;
 import model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ import java.util.Scanner;
 @Service
 public class FindUserCommand implements Command {
     private final Receiver receiver;
+    private static Logger LOGGER = LogManager.getLogger();
 
     @Autowired
     public FindUserCommand(Receiver receiver) {
@@ -39,6 +42,7 @@ public class FindUserCommand implements Command {
                 System.out.println("Name: " + name);
                 System.out.println("Surname: " + surname);
                 System.out.println("Birthday: " + user.getBirthday());
+                LOGGER.info("User "+ user.getLogin() + " is finded");
             }
         }
 

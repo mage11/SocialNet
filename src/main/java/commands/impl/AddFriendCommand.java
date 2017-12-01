@@ -6,6 +6,8 @@ import dao.DataDao;
 import dao.impl.DataDaoImpl;
 import model.Network;
 import model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ import java.util.Scanner;
 @Service
 public class AddFriendCommand implements Command {
     private final Receiver receiver;
+    private static Logger LOGGER = LogManager.getLogger();
 
     @Autowired
     public AddFriendCommand(Receiver receiver) {
@@ -40,11 +43,12 @@ public class AddFriendCommand implements Command {
                     network.getCurrentUser().addFriend(friend);
                     dataDao.saveFriendToFriendlistDB(network.getCurrentUser().getLogin(),
                             friend.getLogin());
+                    LOGGER.info("Friend "+ friend.getLogin() + " is added");
                     return;
                 }
             }
         }
-        System.out.println("User does not exist");
+
 
     }
 }

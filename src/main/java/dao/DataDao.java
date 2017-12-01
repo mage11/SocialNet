@@ -13,6 +13,8 @@ public interface DataDao {
     void getUsersFromDB();
     void saveMessageToDB(Message message);
     void saveFriendToFriendlistDB(String loginOne, String loginTwo);
+    void updateUser (User user);
+    User getUserFromDB (String login);
     User findUserInDB(String name, String surname);
     List<Message> getPublicMessagesFromDB(String login);
     List<Message> getPrivateMessagesFromDB(String login);

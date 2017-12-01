@@ -7,6 +7,8 @@ import dao.DataDao;
 import dao.impl.DataDaoImpl;
 import model.Network;
 import model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ import java.util.Scanner;
 @Service
 public class CreateNewUserCommand implements Command {
     private final Receiver receiver;
+    private static Logger LOGGER = LogManager.getLogger();
 
     @Autowired
     public CreateNewUserCommand(Receiver receiver) {
@@ -42,8 +45,6 @@ public class CreateNewUserCommand implements Command {
         DataDao dataDao = new DataDaoImpl(receiver);
         dataDao.saveUser(user);
         network.addUser(user);
-        System.out.println("User is added to network.");
-
-        System.out.println("User is added to the network, number of users in the network: " + network.getNumberOfUsers());
+        LOGGER.info("User "+ user.getLogin() + " is created");
     }
 }

@@ -21,13 +21,15 @@ public class Menu {
     private final Command showFriendListCommand;
     private final Command ratingMessagesCommand;
     private final Command findUserCommand;
+    private final Command editUserCommand;
     private final DataDao dataDao;
+
 
     @Autowired
     public Menu(Invoker invoker, Command createNewUserCommand, Command loginCommand, Command createPublicMessageCommand,
                 Command createPrivateMessageCommand, Command showAllPublicMessagesCommand,
                 Command showAllPrivateMessagesCommand, Command showFriendListCommand, Command addFriendCommand,
-                Command ratingMessagesCommand, Command findUserCommand, DataDao dataDao) {
+                Command ratingMessagesCommand, Command findUserCommand, Command editUserCommand, DataDao dataDao) {
         this.invoker = invoker;
         this.createNewUserCommand = createNewUserCommand;
         this.loginCommand = loginCommand;
@@ -40,6 +42,7 @@ public class Menu {
         this.ratingMessagesCommand = ratingMessagesCommand;
         this.findUserCommand = findUserCommand;
         this.dataDao = dataDao;
+        this.editUserCommand = editUserCommand;
     }
 
     public void showMenu() {
@@ -61,6 +64,7 @@ public class Menu {
                 System.out.println("7 - Add a friend");
                 System.out.println("8 - Rating Messages");
                 System.out.println("9 - Find a User");
+                System.out.println("10 - Edit a User");
                 System.out.println("666 - exit");
 
                 int i = scanner.nextInt();
@@ -75,6 +79,7 @@ public class Menu {
                     case 7: invoker.setCommand(addFriendCommand);invoker.run();break;
                     case 8: invoker.setCommand(ratingMessagesCommand);invoker.run();break;
                     case 9: invoker.setCommand(findUserCommand);invoker.run();break;
+                    case 10: invoker.setCommand(editUserCommand);invoker.run();break;
                     case 666: exit = true; break;
                     default: throw new IllegalArgumentException("");
                 }
