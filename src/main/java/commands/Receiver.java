@@ -1,6 +1,6 @@
-package main.java.commands;
+package commands;
 
-import main.java.model.Network;
+import model.Network;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,14 +1,13 @@
-package main.java.commands.impl;
+package commands.impl;
 
-
-import main.java.commands.Command;
-import main.java.commands.Receiver;
-import main.java.model.Message;
-import main.java.model.Network;
-import main.java.model.User;
-import main.java.services.RatingService;
+import commands.Command;
+import commands.Receiver;
+import model.Message;
+import model.Network;
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import services.RatingService;
 
 import java.util.List;
 

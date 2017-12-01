@@ -1,4 +1,4 @@
-package main.java.commands;
+package commands;
 
 import org.springframework.stereotype.Service;
 

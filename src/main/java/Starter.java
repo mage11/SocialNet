@@ -1,5 +1,3 @@
-package main.java;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import services.Menu;
 

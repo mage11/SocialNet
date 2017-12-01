@@ -1,8 +1,8 @@
-package main.java.services;
+package services;
 
-import main.java.commands.Command;
-import main.java.commands.Invoker;
-import main.java.dao.DataDao;
+import commands.Command;
+import commands.Invoker;
+import dao.DataDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

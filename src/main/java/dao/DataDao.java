@@ -1,7 +1,7 @@
-package main.java.dao;
+package dao;
 
-import main.java.model.Message;
-import main.java.model.User;
+import model.Message;
+import model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

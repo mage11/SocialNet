@@ -1,11 +1,11 @@
-package main.java.dao.impl;
+package dao.impl;
 
-import main.java.commands.Receiver;
-import main.java.dao.BaseDao;
-import main.java.dao.DataDao;
-import main.java.model.Message;
-import main.java.model.Network;
-import main.java.model.User;
+import commands.Receiver;
+import dao.BaseDao;
+import dao.DataDao;
+import model.Message;
+import model.Network;
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

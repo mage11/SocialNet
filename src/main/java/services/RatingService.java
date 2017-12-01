@@ -1,10 +1,12 @@
-package main.java.services;
+package services;
 
-import main.java.model.Message;
+
+import model.Message;
 
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 public class RatingService {
     private List<Message> messageList;
@@ -31,6 +33,9 @@ public class RatingService {
 
     public List<Message> getMessageList() {
         return messageList;
+    }
+    public Map<Integer, String> getTopMessages() {
+        return topMessages;
     }
 
     private void showTopMessages() {
