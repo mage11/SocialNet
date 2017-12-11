@@ -1,19 +1,30 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by user on 9/30/2017.
- */
+@Entity
+@Table(name = "users")
 public class User {
    // private static long userCounter=0;
+    @Column
+    @Id
     private long id;
+    @Column
     private String login;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private String sex;
+    @Column
     private String birthday;
+    @Column
     private String password;
 
     private List<User> friendList = new ArrayList<>();

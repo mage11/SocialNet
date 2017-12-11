@@ -1,8 +1,19 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "messages")
 public class Message {
+    @Column
     private String message;
+    @Column
+    @Id
     private String sender;
+    @Column
     private String recipient; //login
 
     private byte type; //1 - private, 0 - public

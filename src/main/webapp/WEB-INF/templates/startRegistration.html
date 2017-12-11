@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New User Registration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}"/>
+
+</head>
+<body>
+<form th:object="${user}" method="post" >
+    <label>User name: </label>
+    <input type="text" th:field="*{name}" /><br/>
+    <label>User gender: </label>
+    <input type="text" th:field="*{gender}" /><br/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
