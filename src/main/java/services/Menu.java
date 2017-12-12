@@ -1,3 +1,4 @@
+/*
 package services;
 
 import commands.Command;
@@ -86,4 +87,4 @@ public class Menu {
             }while (!exit);
         }
     }
-}
+}*/

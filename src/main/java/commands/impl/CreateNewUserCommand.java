@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 
@@ -48,3 +49,4 @@ public class CreateNewUserCommand implements Command {
         LOGGER.info("User "+ user.getLogin() + " is created");
     }
 }
+*/

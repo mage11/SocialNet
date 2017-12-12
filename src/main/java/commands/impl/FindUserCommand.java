@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -47,4 +48,4 @@ public class FindUserCommand implements Command {
         }
 
     }
-}
+}*/

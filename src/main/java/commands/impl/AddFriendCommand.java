@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -51,4 +52,4 @@ public class AddFriendCommand implements Command {
 
 
     }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package model;
 
 import org.springframework.stereotype.Service;
@@ -25,3 +26,4 @@ public class Network {
     public User getCurrentUser() { return currentUser; }
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -39,4 +40,4 @@ public class ShowAllPublicMessagesCommand implements Command {
 
     }
 
-}
+}*/

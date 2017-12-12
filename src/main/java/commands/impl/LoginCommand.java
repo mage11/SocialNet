@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -47,3 +48,4 @@ public class LoginCommand implements Command {
         LOGGER.info("Error for Login");
     }
 }
+*/

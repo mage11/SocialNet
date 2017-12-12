@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -35,4 +36,4 @@ public class ShowFriendListCommand implements Command {
         }
         LOGGER.info("Friends showed");
     }
-}
+}*/

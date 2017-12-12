@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -38,4 +39,4 @@ public class ShowAllPrivateMessagesCommand implements Command {
         LOGGER.info("Private messages showed");
     }
 
-}
+}*/

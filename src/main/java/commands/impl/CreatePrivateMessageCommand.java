@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -57,3 +58,4 @@ public class CreatePrivateMessageCommand implements Command {
 
     }
 }
+*/

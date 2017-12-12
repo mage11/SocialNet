@@ -1,3 +1,4 @@
+/*
 package commands;
 
 import model.Network;
@@ -17,3 +18,4 @@ public class Receiver {
 
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import services.Menu;
 
@@ -8,4 +9,4 @@ public class Starter {
         Menu menu = (Menu) annotationConfigApplicationContext.getBean("menu");
         menu.showMenu();
     }
-}
+}*/

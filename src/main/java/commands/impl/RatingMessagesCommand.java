@@ -1,3 +1,4 @@
+/*
 package commands.impl;
 
 import commands.Command;
@@ -38,3 +39,4 @@ public class RatingMessagesCommand implements Command {
 
     }
 }
+*/

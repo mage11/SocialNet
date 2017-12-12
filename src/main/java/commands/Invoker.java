@@ -1,3 +1,4 @@
+/*
 package commands;
 
 import org.springframework.stereotype.Service;
@@ -14,3 +15,4 @@ public class Invoker {
         command.execute();
     }
 }
+*/
